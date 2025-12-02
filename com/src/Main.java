@@ -1,4 +1,5 @@
 import focke.base.Day;
+import focke.day.GiftShop;
 
 import java.io.IOException;
 
@@ -8,7 +9,8 @@ public class Main {
 //           Day day = new Day(i);
 //           day.solveDay();
 //        }
-        Day dayOne = new Day(1);
-        dayOne.solveDay();
+        Day dayTwo = new GiftShop();
+        dayTwo.runTests();
+        dayTwo.solveDay();
     }
 }

@@ -1,34 +1,84 @@
 package focke.base;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
 
 public class Day {
-    private int day;
-    private Task taskOne;
-    private Task taskTwo;
+    protected List<String> input;
+    protected final int day;
+
     public Day(int day) throws IOException {
         this.day = day;
-        taskOne = new Task(day, 1);
-        taskTwo = new Task(day, 2);
     }
 
-    public boolean runTests() {
-        return false;
+    public void createInput() throws IOException {
+        String dayString;
+        if (day < 10) {
+            dayString = "0" + day;
+        } else {
+            dayString = String.valueOf(day);
+        }
+        final String PATH = "resources/day-" + dayString + "/input.txt";
+        this.input = Files.readAllLines(Path.of(PATH));
     }
 
-    public void solveTask(Task task){
-        System.out.printf("Starting Task: %s %n", task.getTaskNumber());
+    protected boolean runTestOne() throws IOException {
+        System.out.println("TestingOne not yet implemented");
+        return true;
+    }
+
+    public void runTests() throws IOException {
+        System.out.println("Running Tests Day: " + day);
+        if (runTestOne() && runTestTwo()) {
+            System.out.println("Tests Passed");
+        } else {
+            System.out.println("Tests Failed");
+        }
+    }
+    protected boolean runTestTwo() throws IOException {
+        System.out.println("TestingTwo not yet implemented");
+        return true;
+    }
+    protected void solveOne() throws IOException {
+        System.out.println("SolveOne not yet implemented");
+    }
+
+    protected void solveTwo() throws IOException {
+        System.out.println("SolveTwo not yet implemented");
+    }
+
+
+    protected void solve(int n) throws IOException {
+        if (n == 1) {
+            solveOne();
+        } else if (n == 2) {
+            solveTwo();
+        } else {
+            System.err.println("ERROR: Wrong Tasknumber!");
+        }
+    }
+
+    //TODO timer
+    public void solveTask(int task) throws IOException {
+        System.out.printf("Starting Task: %d %n", task);
         long start = System.currentTimeMillis();
-        task.run();
+        solve(task);
         long end = System.currentTimeMillis();
         System.out.printf("Solved in %d ms %n",  end - start);
         System.out.println();
     }
 
-    public void solveDay() {
+    protected void printResult(int task, long result) {
+        System.out.printf("Task: %d %n", task);
+        System.out.printf("Result: %d %n", result);
+    }
+    public void solveDay() throws IOException {
+        createInput();
         System.out.printf("Day [[%d]] \n", day);
-        solveTask(taskOne);
-        solveTask(taskTwo);
+        solve(1);
+        solve(2);
         System.out.println("------------------------------------------------");
         System.out.println();
     }
