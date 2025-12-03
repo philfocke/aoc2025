@@ -95,13 +95,7 @@ public class GiftShop extends Day {
 
             String curSubString = arg.substring(0, i);
             long rep = length / i;
-            /* Kriege Nachricht das hier Stringbuilder benutzt werden sollte TODO nachfragen warum SB über Concetenation
-            String tmp ="";
-            for (int j = 0; j < rep; ++j) {
-               tmp += curSubString;
-            }
-             */
-
+            // -> Concet longer because String actual in mmry
             StringBuilder builder = new StringBuilder();
             for (int j = 0; j < rep; ++j) {
                builder.append(curSubString);

@@ -74,7 +74,6 @@ public class Lobby extends Day {
             res = res.multiply(BigInteger.TEN).add(new BigInteger(String.valueOf(curJolt)));
             start = bestPos + 1;
         }
-        System.out.println(res);
         return res;
     }
 
