@@ -1,6 +1,7 @@
 package focke.base;
 
 import java.io.IOException;
+import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
@@ -73,12 +74,27 @@ public class Day {
     protected void printResult(int task, long result) {
         System.out.printf("Task: %d %n", task);
         System.out.printf("Result: %d %n", result);
+        System.out.println();
     }
+
+    protected void printBigResult(int task, BigInteger result) {
+        System.out.printf("Task: %d %n", task);
+        System.out.println("Result: " + result);
+        System.out.println();
+    }
+
+
     public void solveDay() throws IOException {
         createInput();
         System.out.printf("Day [[%d]] \n", day);
-        solve(1);
-        solve(2);
+        for (int i = 1; i < 3; ++i) {
+            long start = System.currentTimeMillis();
+            solve(i);
+            long end = System.currentTimeMillis();
+            System.out.printf("Solved in %d ms %n",  end - start);
+            System.out.println();
+        }
+
         System.out.println("------------------------------------------------");
         System.out.println();
     }
