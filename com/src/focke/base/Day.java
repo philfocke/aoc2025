@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.List;
 
 public class Day {
@@ -62,14 +64,6 @@ public class Day {
     }
 
     //TODO timer
-    public void solveTask(int task) throws IOException {
-        System.out.printf("Starting Task: %d %n", task);
-        long start = System.currentTimeMillis();
-        solve(task);
-        long end = System.currentTimeMillis();
-        System.out.printf("Solved in %d ms %n",  end - start);
-        System.out.println();
-    }
 
     protected void printResult(int task, long result) {
         System.out.printf("Task: %d %n", task);
@@ -88,10 +82,12 @@ public class Day {
         createInput();
         System.out.printf("Day [[%d]] \n", day);
         for (int i = 1; i < 3; ++i) {
-            long start = System.currentTimeMillis();
+            var x = Instant.now();
+            //long start = System.currentTimeMillis();
             solve(i);
-            long end = System.currentTimeMillis();
-            System.out.printf("Solved in %d ms %n",  end - start);
+            //long end = System.currentTimeMillis();
+            System.out.println(Duration.between(x, Instant.now()));
+            //System.out.printf("Solved in %d ms %n",  end - start);
             System.out.println();
         }
 

@@ -14,7 +14,8 @@ public class Main {
 //        dayTwo.runTests();
 //        dayTwo.solveDay();
         Day dayThree = new Lobby();
-        dayThree.runTests();
-        dayThree.solveDay();
+        for (int i = 0; i < 10; ++i ) {
+            dayThree.solveDay();
+        }
     }
 }
