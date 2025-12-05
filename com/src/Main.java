@@ -12,8 +12,8 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) throws IOException {
         //runAll();
-        Day dayFour = new PrintingDepartment();
-        dayFour.solveDay();
+        Day dayFive = new Cafeteria();
+        dayFive.solveDay();
 
     }
     public static void runAll() throws IOException {
