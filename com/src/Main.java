@@ -13,6 +13,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         //runAll();
         Day dayFive = new Cafeteria();
+        dayFive.runTests();
         dayFive.solveDay();
 
     }

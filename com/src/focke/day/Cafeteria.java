@@ -19,6 +19,14 @@ public class Cafeteria extends Day {
     }
 
     @Override
+    protected boolean runTestTwo() throws IOException {
+        createTestInput();
+        long solvedInput = createFreshIngredientsRange(this.testInput);
+        assert (solvedInput == 14) : "Should be 14 is : " + solvedInput ;
+        return true;
+    }
+
+    @Override
     protected void solveTwo() throws IOException {
        createInput();
        long solvedInput = createFreshIngredientsRange(this.input);
@@ -49,18 +57,14 @@ public class Cafeteria extends Day {
                 long counter = 0;
                 for (Long[] x : minimizedList) {
                     // 250,520 -> 520,250
-                    counter += Math.subtractExact(x[1], x[0]);
+                    // -1 vergessen XD
+                    counter += Math.subtractExact(x[1] , x[0] - 1);
                 }
                 return counter;
             }
         }
         return 0;
     }
-
-    private void sortListByFirstIndex(List<Long[]> list) {
-    }
-
-
 
     private List<Long[]> minimizeFreshIngredientsRange(List<Long[]> list) {
         // Range c 170 - 240
@@ -77,7 +81,8 @@ public class Cafeteria extends Day {
         List<Long[]> merged = new ArrayList<>();
         Long[] current = list.get(0);
 
-        for (int i = 1; i < list.size(); i++) {
+        // Brauche kein [0] Check weil sorted, dann höhere zahl
+        for (int i = 1; i < list.size(); ++i) {
             Long[] next = list.get(i);
             if (next[0] <= current[1]) {
                 current[1] = Math.max(current[1], next[1]);
