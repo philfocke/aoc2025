@@ -10,12 +10,23 @@ import java.util.List;
 
 public class Day {
     protected List<String> input;
+    protected List<String> testInput;
     protected final int day;
 
     public Day(int day) throws IOException {
         this.day = day;
     }
 
+    public void createTestInput() throws IOException {
+        String dayString;
+        if (day < 10) {
+            dayString = "0" + day;
+        } else {
+            dayString = String.valueOf(day);
+        }
+        final String PATH = "resources/day-" + dayString + "/testinput.txt";
+        this.testInput = Files.readAllLines(Path.of(PATH));
+    }
     public void createInput() throws IOException {
         String dayString;
         if (day < 10) {

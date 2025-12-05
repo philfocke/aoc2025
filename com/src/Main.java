@@ -1,21 +1,26 @@
 import focke.base.Day;
+import focke.day.Cafeteria;
 import focke.day.GiftShop;
 import focke.day.Lobby;
+import focke.day.PrintingDepartment;
 
 import java.io.IOException;
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-//        for (int i = 1; i < 13; ++i ) {
-//           Day day = new Day(i);
-//           day.solveDay();
-//        }
-//        Day dayTwo = new GiftShop();
-//        dayTwo.runTests();
-//        dayTwo.solveDay();
-        Day dayThree = new Lobby();
-        for (int i = 0; i < 10; ++i ) {
-            dayThree.solveDay();
-        }
+        //runAll();
+        Day dayFour = new PrintingDepartment();
+        dayFour.solveDay();
+
+    }
+    public static void runAll() throws IOException {
+        List<Day> days = new ArrayList<Day>();
+        days.add(new GiftShop());
+        days.add(new Lobby());
+        days.add(new Cafeteria());
+        days.add(new PrintingDepartment());
     }
 }
