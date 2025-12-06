@@ -1,8 +1,5 @@
 import focke.base.Day;
-import focke.day.Cafeteria;
-import focke.day.GiftShop;
-import focke.day.Lobby;
-import focke.day.PrintingDepartment;
+import focke.day.*;
 
 import java.io.IOException;
 import java.sql.Array;
@@ -12,9 +9,9 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) throws IOException {
         //runAll();
-        Day dayFive = new Cafeteria();
-        dayFive.runTests();
-        dayFive.solveDay();
+        Day daySix = new TrashCompactor();
+        daySix.runTests();
+        daySix.solveDay();
 
     }
     public static void runAll() throws IOException {
@@ -23,5 +20,6 @@ public class Main {
         days.add(new Lobby());
         days.add(new Cafeteria());
         days.add(new PrintingDepartment());
+        days.add(new TrashCompactor());
     }
 }
