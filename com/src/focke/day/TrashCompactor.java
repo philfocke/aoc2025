@@ -53,7 +53,6 @@ public class TrashCompactor extends Day {
         // next Icon position = nextIconPosition
         // Math Logic
         String rotatedString = rotateString(input);
-//        System.out.println(rotatedString.trim());
         String[] expressions = rotatedString.trim().replaceAll("\\s+", " ").split("\\s");
         long counter = 0;
         counter += calcValueOfStrings(expressions);
@@ -99,7 +98,6 @@ public class TrashCompactor extends Day {
         for (Long num : nums) {
             result += num;
         }
-        System.out.println("current Result: " + result );
         return result;
     }
 

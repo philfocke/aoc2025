@@ -8,10 +8,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        //runAll();
-        Day daySix = new TrashCompactor();
-        daySix.runTests();
-        daySix.solveDay();
+        runAll();
 
     }
     public static void runAll() throws IOException {
@@ -21,5 +18,10 @@ public class Main {
         days.add(new Cafeteria());
         days.add(new PrintingDepartment());
         days.add(new TrashCompactor());
+
+
+        for (Day day : days) {
+            day.solveDay();
+        }
     }
 }
